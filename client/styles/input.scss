@@ -1,0 +1,50 @@
+.form-control {
+    display: block;
+    margin-bottom: 2rem;
+
+    *:disabled {
+        background-color: #dad9d9;
+        color: #898888;
+        opacity: 1;
+    }    
+
+    &--invalid {
+        color: #E04C4C;
+
+        input, textarea, select {
+            border-color: #E04C4C !important;
+            background: #ffd1d1 !important;
+        }
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        display: block;
+        padding-left: 0.25rem;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        font: inherit;
+        border: 0;
+        border: 1px solid #e7e7e7;
+        border-radius: 5px;
+        background: #fff;
+        padding: 1rem;
+        display: block;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+        background: #ebebeb;
+        border-color: #510077;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin-top: .8rem;
+    }
+}
