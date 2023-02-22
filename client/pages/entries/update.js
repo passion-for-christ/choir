@@ -60,6 +60,7 @@ const UpdateEntries = ({ entry, onUpdate, isModalLoading }) => {
                     <Input id='age'
                         element='input' type='number'
                         label='Age *'
+                        min={0}
                         validators={[VALIDATOR_REQUIRE()]}
                         onInput={inputHandler}
                         initialValidity={true}

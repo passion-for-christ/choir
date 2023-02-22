@@ -18,5 +18,3 @@ const SubmitButton = ({ isValid, formIsTouched = true }) => {
 };
 
 export default SubmitButton;
-
-//test

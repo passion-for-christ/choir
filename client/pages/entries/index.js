@@ -10,7 +10,7 @@ import UpdateEntries from './update';
 
 import classes from './index.module.scss';
 
-const Entries = () => {
+const Entries = ({ props }) => {
     const [
         isLoading,
         showSuccessMessage,
@@ -30,6 +30,8 @@ const Entries = () => {
         showConfirmDeleteModal,
         deletedOrUpdated,
     } = modalState;
+
+    // console.log(props.params)
 
     return (
         <>

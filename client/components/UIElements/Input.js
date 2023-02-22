@@ -31,7 +31,7 @@ const Input = props => {
         validators, errorText, disabled, 
         initialValidity,
         children, autocomplete,
-        rows, actionChange, align, name,
+        rows, actionChange, align, name, min,
     } = props;
 
     const [inputState, dispatch] = useReducer(inputReducer, {
@@ -83,6 +83,7 @@ const Input = props => {
                     onChange={changeHandler}
                     onBlur={touchHandler}
                     value={value}
+                    min={min}
                     disabled={disabled || false}
                     autoComplete={autocomplete}
                 />

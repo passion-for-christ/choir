@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import { useForm } from '@/utils/hooks/FormHooks/form.hook';
 import { useSubmitHook } from '@/utils/hooks/FormHooks/submit.hook';
@@ -12,6 +13,14 @@ import SubmitButton from '@/components/FormElements/SubmitButton';
 
 const Registration = () => {
     const { submitHandler } = useSubmitHook();
+    const router = useRouter();
+
+    // useEffect(() => {
+    //     if (!auth.isLoggedIn) {
+    //         router.push('/');
+    //         return;
+    //     }
+    // }, []);
 
     const [isLoading, setIsLoading] = useState(true);
   
@@ -25,6 +34,7 @@ const Registration = () => {
         setIsLoading(true);
         event.preventDefault();
         submitHandler(formState);
+        router.push('/success')
         setIsLoading(false);
     };
 
@@ -56,6 +66,7 @@ const Registration = () => {
                 <div className='form-row form-row-flex-1'>
                     <Input id='age'
                         element='input' type='number'
+                        min={0}
                         label='Age *'
                         validators={[VALIDATOR_REQUIRE()]}
                         onInput={inputHandler}
