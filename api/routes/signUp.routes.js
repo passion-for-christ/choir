@@ -4,8 +4,11 @@ const signUpController = require('../controllers/signUp.controller');
 const router = express.Router();
 
 router.route('/')
-    .get(signUpController.getAll)
     .post(signUpController.create);
+
+router.route('/')
+    .get(signUpController.getAll)
+
 
 router.route('/:id')
     .get(signUpController.getOne)

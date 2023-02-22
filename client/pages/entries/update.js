@@ -8,7 +8,7 @@ import Input from '@/components/UIElements/Input';
 import Button from '@/components/UIElements/Button';
 import LoadingSpinner from '@/components/UIElements/LoadingSpinner';
 
-const UpdateChurch = ({ church, onUpdate, isModalLoading }) => {
+const UpdateEntries = ({ church, onUpdate, isModalLoading }) => {
     const { sendRequest } = useHttpClient();
 
     const [isLoading, setIsLoading] = useState(isModalLoading);
@@ -771,4 +771,4 @@ const UpdateChurch = ({ church, onUpdate, isModalLoading }) => {
     );
 };
 
-export default UpdateChurch;
+export default UpdateEntries;
