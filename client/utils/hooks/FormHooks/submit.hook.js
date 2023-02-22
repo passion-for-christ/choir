@@ -3,7 +3,7 @@ import { useHttpClient } from '../http.hook';
 export const useSubmitHook = () => {
     const { sendRequest } = useHttpClient();
 
-    const submitHandler = async (formState) => {
+    const submitHandler = async (formState, entry = false) => {
         if (formState.inputs.voiceType.value === 'Unsure') {
             formState.inputs.voiceType.value = 'Soprano';
         }
@@ -21,11 +21,17 @@ export const useSubmitHook = () => {
         };
         
         try {
-            await sendRequest(process.env.BACKEND_URL + '/sign-up/', 'POST', JSON.stringify(formData), {
-                'Content-Type': 'application/json',
-            });
+            if (entry) {
+                await sendRequest(process.env.BACKEND_URL + '/sign-up/' + entry._id, 'PATCH', JSON.stringify(formData), {
+                    'Content-Type': 'application/json',
+                });
+            } else {
+                await sendRequest(process.env.BACKEND_URL + '/sign-up/', 'POST', JSON.stringify(formData), {
+                    'Content-Type': 'application/json',
+                });
+            }
         } catch (err) {
-            console.error(`There was an error submitting registration form:`, err);
+            console.error(`There was an error updating choir entry:`, err);
         }
     };
 

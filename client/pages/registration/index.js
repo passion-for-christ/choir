@@ -9,7 +9,6 @@ import { INITIAL_REGISTRATION_INPUTS } from '@/data/initialRegistrationInputs';
 import LoadingSpinner from '../../components/UIElements/LoadingSpinner';
 import Input from '../../components/UIElements/Input';
 import SubmitButton from '@/components/FormElements/SubmitButton';
-// import Button from '@/components/UIElements/Button';
 
 const Registration = () => {
     const { submitHandler } = useSubmitHook();
@@ -22,7 +21,7 @@ const Registration = () => {
         setIsLoading(false);
     }, []);
 
-    const submitRegistrationForm = (event) => {
+    const submitEntryForm = (event) => {
         setIsLoading(true);
         event.preventDefault();
         submitHandler(formState);
@@ -35,7 +34,7 @@ const Registration = () => {
 
             <h4>CHOIR REGISTRATION FORM</h4>
 
-            <form onSubmit={submitRegistrationForm} className='container'>
+            <form onSubmit={submitEntryForm} className='container'>
                 <div className='form-row form-row-flex-1'>
                     <Input id='firstName'
                     element='input' type='text'
@@ -102,7 +101,7 @@ const Registration = () => {
 
                 <div className='form-row form-row-flex-1'>
                     <div>
-                        <label htmlFor='experienced'><strong>Do you have choir experience?</strong></label>
+                        <label htmlFor='experienced'><strong>Do you have choir experience? *</strong></label>
                         <Input id='experienced'
                             element='radio' type='radio'
                             name='choirExperience'
@@ -132,15 +131,13 @@ const Registration = () => {
                         initialValidity={false}
                     >
                         <option value='' disabled defaultValue>Select</option>
-                        <option value='Unsure'>Unsure</option>
                         <option value='Soprano'>Soprano</option>
                         <option value='Alto'>Alto</option>
                         <option value='Tenor'>Tenor</option>
                         <option value='Bass'>Bass</option>
+                        <option value='Unsure'>Unsure</option>
                     </Input>
                 </div>            
-
-                {/* <Button onClick={() => console.log(formState)} type='button' /> */}
 
                 <SubmitButton isValid={formState.isValid} />                
             </form>

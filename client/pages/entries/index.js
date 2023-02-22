@@ -104,9 +104,9 @@ const Entries = () => {
 
                                             <td className={classes.adminButtons}>
                                                 <div>
-                                                    {/* <Button type='button' size='icon' onClick={() => openUpdateModalHandler(entry)}>
+                                                    <Button type='button' size='icon' onClick={() => openUpdateModalHandler(entry)}>
                                                         <i className='fal fa-edit'></i>
-                                                    </Button> */}
+                                                    </Button>
                                                     
                                                     <Button type='button' size='icon' onClick={() => openDeleteModalHandler(entry)} color='red'>
                                                         <i className='fal fa-trash-alt'></i>
@@ -123,9 +123,13 @@ const Entries = () => {
                             </tbody>
                         </AdminTable>
                     </>
-                ) : null} 
+                ) : (
+                    <div>
+                        No entries yet.
+                    </div>
+                )} 
 
-                {/* <Modal 
+                <Modal 
                     show={showUpdateModal} 
                     onCancel={closeModalHandler}
                     size='regular'
@@ -133,11 +137,11 @@ const Entries = () => {
                     footer={<p>* Required Field</p>}
                 >
                     <UpdateEntries
-                        church={currentlySelected}
+                        entry={currentlySelected}
                         onUpdate={updateHandler}
                         isModalLoading={isLoading}
                     />
-                </Modal> */}
+                </Modal>
 
                 <ConfirmDelete
                     show={showConfirmDeleteModal}

@@ -2,11 +2,11 @@ import Button from '../UIElements/Button';
 
 import classes from './SubmitButton.module.scss';
 
-const SubmitButton = ({ isValid }) => {
+const SubmitButton = ({ isValid, formIsTouched = true }) => {
     return (
         <>
             <Button
-                disabled={!isValid}
+                disabled={!isValid || !formIsTouched}
                 type='submit'
             >
                 Submit
