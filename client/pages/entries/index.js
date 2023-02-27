@@ -1,10 +1,10 @@
-import { useAdmin } from '@/utils/hooks/admin.hook';
+import { useAdmin } from '../../utils/hooks/admin.hook';
 
-import Button from '@/components/UIElements/Button';
-import LoadingSpinner from '@/components/UIElements/LoadingSpinner';
-import Modal from '@/components/ModalElements/Modal';
-import ConfirmDelete from '@/components/UIElements/ConfirmDelete';
-import AdminTable from '@/components/UIElements/AdminTable';
+import Button from '../../components/UIElements/Button';
+import LoadingSpinner from '../../components/UIElements/LoadingSpinner';
+import Modal from '../../components/ModalElements/Modal';
+import ConfirmDelete from '../../components/UIElements/ConfirmDelete';
+import AdminTable from '../../components/UIElements/AdminTable';
 
 import UpdateEntries from './update';
 

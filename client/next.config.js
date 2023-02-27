@@ -9,9 +9,9 @@ module.exports = (phase) => {
     };
   }
 
-  // return {
-  //   env: {
-  //     BACKEND_URL: 'https://api.passionforchrist.org/api/v1',
-  //   },
-  // };
+  return {
+    env: {
+      BACKEND_URL: 'http://localhost:80/api/v1',
+    },
+  };
 };
