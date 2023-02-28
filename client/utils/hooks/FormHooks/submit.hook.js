@@ -19,6 +19,8 @@ export const useSubmitHook = () => {
             experienced: formState.inputs.experienced.value,
             voiceType: formState.inputs.voiceType.value,
         };
+
+        console.log('URL: ', process.env.BACKEND_URL);
         
         try {
             if (entry) {
