@@ -1,18 +1,20 @@
 import Head from 'next/head';
-import Registration from './registration';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Choir Registration</title>
-        <meta name='description' content='Register for the conference choir.' />
+        <title>Broadcasting Jesus</title>
+        <meta name='description' content='Project Under Development' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
       <main>
-        <div className='page'>
-          <Registration />
+        <div className='home'>
+          <div>
+            <h1>Broadcasting Jesus</h1> 
+            <p>[ Project Under Development ]</p>
+          </div>
         </div>
       </main>
     </>

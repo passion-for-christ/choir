@@ -22,7 +22,7 @@ body {
     font-weight: 400;
     line-height: 1.6;
     font-size: 1.6rem;
-    background: #f4f4f4;
+    background: #ffffff;
 }
 
 ol, ul {
@@ -69,9 +69,13 @@ body {
 }
 
 h1 {
-	font-weight: 300;
-    font-size: 4.4rem;
+	font-weight: 700;
+    font-size: 4rem;
     line-height: 1.2;
+
+    @media all and (max-width: 600px) {
+        font-size: 3.6rem;
+    }
 }
 
 h2 {
@@ -81,7 +85,7 @@ h2 {
 }
 
 h3 {
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 2.8rem;
     line-height: 1.2;
 }
@@ -155,12 +159,10 @@ strong, .strong {
 /* PAGE */
 .page {
     padding: 4rem;
-    min-height: calc(100vh - 140px - 62px);
     background: #fff;
 
     @media all and (max-width: 600px) {
         padding: 2rem;
-        min-height: calc(100vh - 100px - 62px);
     }
 }
 
@@ -184,8 +186,6 @@ strong, .strong {
     min-width: 320px;
     min-height: 100vh;
     margin: 0 auto;
-    -webkit-box-shadow: 0 0 1.6rem 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 1.6rem 0 rgba(0, 0, 0, 0.2);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -411,3 +411,21 @@ strong, .strong {
 
 // FLEX
 .flex { display: flex; flex-wrap: wrap }
+
+
+
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.registration {
+    max-width: 320px;
+    background: #f8f8f8;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+}

@@ -5,10 +5,12 @@ import LoadingSpinner from '../../components/UIElements/LoadingSpinner';
 import Modal from '../../components/ModalElements/Modal';
 import ConfirmDelete from '../../components/UIElements/ConfirmDelete';
 import AdminTable from '../../components/UIElements/AdminTable';
+import { useRouter } from 'next/router';
 
-import UpdateEntries from './update';
+import UpdateEntries from './components/conference-choir-entries-update';
 
-import classes from './index.module.scss';
+import classes from './conference-choir-entries.module.scss';
+import { useEffect } from 'react';
 
 const Entries = ({ props }) => {
     const [
@@ -31,7 +33,16 @@ const Entries = ({ props }) => {
         deletedOrUpdated,
     } = modalState;
 
-    // console.log(props.params)
+    const router = useRouter(); 
+
+    const theQuery = router.query.pass;
+
+    useEffect(() => {
+        if (theQuery && theQuery !== "OviIsTheChoirDirector") {
+            router.push('/applications/conference-choir')
+        }
+    }, [theQuery])
+
 
     return (
         <>
