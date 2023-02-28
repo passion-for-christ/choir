@@ -1,7 +1,7 @@
 import { useHttpClient } from '../http.hook';
 
 export const useSubmitHook = () => {
-    const { sendRequest } = useHttpClient();
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
     const submitHandler = async (formState, entry = false) => {
         if (formState.inputs.voiceType.value === 'Unsure') {
@@ -20,21 +20,30 @@ export const useSubmitHook = () => {
             voiceType: formState.inputs.voiceType.value,
         };
 
-        console.log('URL: ', process.env.BACKEND_URL);
+        console.log('URL: ', process.env.BACKEND_URL, error);
+
+        let response; 
         
         try {
             if (entry) {
-                await sendRequest(process.env.BACKEND_URL + '/sign-up/' + entry._id, 'PATCH', JSON.stringify(formData), {
+                response = await sendRequest(process.env.BACKEND_URL + '/sign-up/' + entry._id, 'PATCH', JSON.stringify(formData), {
                     'Content-Type': 'application/json',
                 });
             } else {
-                await sendRequest(process.env.BACKEND_URL + '/sign-up/', 'POST', JSON.stringify(formData), {
+
+                console.log('Data is sending!')
+
+                response = await sendRequest(process.env.BACKEND_URL + '/sign-up/', 'POST', JSON.stringify(formData), {
                     'Content-Type': 'application/json',
                 });
+
+                console.log('Data sent!')
             }
         } catch (err) {
             console.error(`There was an error updating choir entry:`, err);
         }
+
+        console.log('RESPONSE', response);
     };
 
     return { submitHandler };

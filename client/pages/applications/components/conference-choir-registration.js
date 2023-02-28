@@ -27,8 +27,8 @@ const Registration = () => {
         setIsLoading(true);
         event.preventDefault();
         submitHandler(formState);
-        router.push('/applications/conference-choir-submited')
         setIsLoading(false);
+        router.push('/applications/conference-choir-submited')
     };
 
     return (

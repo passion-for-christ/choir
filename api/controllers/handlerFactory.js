@@ -42,11 +42,6 @@ exports.updateOne = Model => catchAsync(async (req, res, next) => {
 });
 
 exports.createOne = Model => catchAsync(async (req, res, next) => {
-    // const newCompany = new Company({});
-    // newCompany.save();
-
-    // console.log('HERE', req.body);
-
     const doc = await Model.create(req.body);
 
     res.status(201).json({
