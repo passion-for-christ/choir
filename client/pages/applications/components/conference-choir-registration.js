@@ -64,15 +64,14 @@ const Registration = () => {
 
                     <Input id='city'
                         element='select' type='input'
-                        label='State *'
+                        label='Region *'
                         validators={[VALIDATOR_REQUIRE()]}
                         onInput={inputHandler}
                         initialValidity={false}
                     >
                         <option value='' disabled defaultValue>Select</option>
-                        <option value='California'>California</option>
-                        <option value='Oregon'>Oregon</option>
-                        <option value='Washington'>Washington</option>
+                        <option value='Seattle'>Seattle</option>
+                        <option value='Portland'>Portland</option>
                     </Input>
                 </div>
 
