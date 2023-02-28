@@ -11,7 +11,7 @@ module.exports = (phase) => {
 
   return {
     env: {
-      BACKEND_URL: 'http://localhost:80/api/v1',
+      BACKEND_URL: 'https://api.broadcastingjesus.com/api/v1',
     },
   };
 };
