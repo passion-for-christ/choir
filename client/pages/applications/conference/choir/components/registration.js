@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 import { useForm } from '@/utils/hooks/FormHooks/form.hook';
 import { useSubmitHook } from '@/utils/hooks/FormHooks/submit.hook';
 
-import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from '../../../utils/validators';
+import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from '../../../../../utils/validators';
 import { INITIAL_REGISTRATION_INPUTS } from '@/data/initialRegistrationInputs';
 
-import LoadingSpinner from '../../../components/UIElements/LoadingSpinner';
-import Input from '../../../components/UIElements/Input';
+import LoadingSpinner from '../../../../../components/UIElements/LoadingSpinner';
+import Input from '../../../../../components/UIElements/Input';
 import SubmitButton from '@/components/FormElements/SubmitButton';
 
 const Registration = () => {
@@ -28,7 +28,7 @@ const Registration = () => {
         event.preventDefault();
         submitHandler(formState);
         setIsLoading(false);
-        router.push('/applications/conference-choir-submited')
+        router.push('/applications/conference/choir/thankyou')
     };
 
     return (

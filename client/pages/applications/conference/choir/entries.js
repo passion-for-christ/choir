@@ -1,15 +1,15 @@
-import { useAdmin } from '../../utils/hooks/admin.hook';
+import { useAdmin } from '../../../../utils/hooks/admin.hook';
 
-import Button from '../../components/UIElements/Button';
-import LoadingSpinner from '../../components/UIElements/LoadingSpinner';
-import Modal from '../../components/ModalElements/Modal';
-import ConfirmDelete from '../../components/UIElements/ConfirmDelete';
-import AdminTable from '../../components/UIElements/AdminTable';
+import Button from '../../../../components/UIElements/Button';
+import LoadingSpinner from '../../../../components/UIElements/LoadingSpinner';
+import Modal from '../../../../components/ModalElements/Modal';
+import ConfirmDelete from '../../../../components/UIElements/ConfirmDelete';
+import AdminTable from '../../../../components/UIElements/AdminTable';
 import { useRouter } from 'next/router';
 
-import UpdateEntries from './components/conference-choir-entries-update';
+import UpdateEntries from './components/registration-update';
 
-import classes from './conference-choir-entries.module.scss';
+import classes from './entries.module.scss';
 import { useEffect } from 'react';
 
 const Entries = ({ props }) => {
@@ -38,8 +38,9 @@ const Entries = ({ props }) => {
     const theQuery = router.query.pass;
 
     useEffect(() => {
+
         if (theQuery && theQuery !== "OviIsTheChoirDirector") {
-            router.push('/applications/conference-choir')
+            router.push('/applications/conference/choir')
         }
     }, [theQuery])
 

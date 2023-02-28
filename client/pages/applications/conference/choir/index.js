@@ -1,4 +1,4 @@
-import Registration from "./components/conference-choir-registration";
+import Registration from "./components/registration";
 
 const ConferenceChoirPage = () => {
     return (
