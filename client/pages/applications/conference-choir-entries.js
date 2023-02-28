@@ -80,6 +80,7 @@ const Entries = ({ props }) => {
                                     <td>Church</td>
                                     <td>City</td>
                                     <td>Vocal Part</td>
+                                    <td>Experience</td>
                                 </tr>
                             </thead>
 
@@ -99,7 +100,7 @@ const Entries = ({ props }) => {
                                                 {entry.telephone}
                                             </td>
 
-                                            <td style={{ textTransform: 'capitalize' }}>
+                                            <td>
                                                 {entry.email}
                                             </td>
 
@@ -113,6 +114,10 @@ const Entries = ({ props }) => {
 
                                             <td style={{ textTransform: 'capitalize' }}>
                                                 {entry.voiceType}
+                                            </td>
+
+                                            <td style={{ textTransform: 'capitalize' }}>
+                                                {entry.experienced ? 'YES' : 'NO'}
                                             </td>
 
                                             <td className={classes.adminButtons}>
