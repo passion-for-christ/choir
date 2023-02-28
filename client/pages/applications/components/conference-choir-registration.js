@@ -63,12 +63,17 @@ const Registration = () => {
                     />
 
                     <Input id='city'
-                        element='input' type='text'
-                        label='City *'
+                        element='select' type='input'
+                        label='State *'
                         validators={[VALIDATOR_REQUIRE()]}
                         onInput={inputHandler}
                         initialValidity={false}
-                    />
+                    >
+                        <option value='' disabled defaultValue>Select</option>
+                        <option value='California'>California</option>
+                        <option value='Oregon'>Oregon</option>
+                        <option value='Washington'>Washington</option>
+                    </Input>
                 </div>
 
                 <div className='form-row form-row-flex-1'>
