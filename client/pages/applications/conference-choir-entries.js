@@ -79,7 +79,7 @@ const Entries = ({ props }) => {
                                     <td>Email</td>
                                     <td>Church</td>
                                     <td>City</td>
-                                    <td>Vocal Part</td>
+                                    <td>Choir Part</td>
                                     <td>Experience</td>
                                 </tr>
                             </thead>

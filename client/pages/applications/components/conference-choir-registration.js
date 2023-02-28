@@ -117,7 +117,7 @@ const Registration = () => {
 
                 <Input id='voiceType'
                     element='select' type='input'
-                    label='Voice Type *'
+                    label='Choir Part *'
                     validators={[VALIDATOR_REQUIRE()]}
                     onInput={inputHandler}
                     initialValidity={false}
