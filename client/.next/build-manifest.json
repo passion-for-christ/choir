@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/applications/conference-choir-entries": [
+    "/applications/conference-choir": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/applications/conference-choir-entries.js"
+      "static/chunks/pages/applications/conference-choir.js"
     ]
   },
   "ampFirstPages": []
