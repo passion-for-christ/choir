@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
-import { INITIAL_REGISTRATION_INPUTS } from '../../data/initialRegistrationInputs';
+import { INITIAL_REGISTRATION_INPUTS } from '../../../data/initialRegistrationInputs';
 
 import { VALIDATOR_REQUIRE, VALIDATOR_EMAIL } from '@/utils/validators';
-import { useForm } from '../../utils/hooks/FormHooks/form.hook';
-import { useSubmitHook } from '../../utils/hooks/FormHooks/submit.hook';
+import { useForm } from '../../../utils/hooks/FormHooks/form.hook';
+import { useSubmitHook } from '../../../utils/hooks/FormHooks/submit.hook';
 
-import Input from '../../components/UIElements/Input';
-import LoadingSpinner from '../../components/UIElements/LoadingSpinner';
-import SubmitButton from '../../components/FormElements/SubmitButton';
+import Input from '../../../components/UIElements/Input';
+import LoadingSpinner from '../../../components/UIElements/LoadingSpinner';
+import SubmitButton from '../../../components/FormElements/SubmitButton';
 
 const UpdateEntries = ({ entry, onUpdate, isModalLoading }) => {
     const { submitHandler } = useSubmitHook();

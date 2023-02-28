@@ -6,9 +6,9 @@ import Modal from '../../components/ModalElements/Modal';
 import ConfirmDelete from '../../components/UIElements/ConfirmDelete';
 import AdminTable from '../../components/UIElements/AdminTable';
 
-import UpdateEntries from './update';
+import UpdateEntries from './components/conference-choir-entries-update';
 
-import classes from './index.module.scss';
+import classes from './conference-choir-entries.module.scss';
 
 const Entries = ({ props }) => {
     const [
