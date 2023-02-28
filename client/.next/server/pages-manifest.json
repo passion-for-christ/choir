@@ -2,10 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/entries": "pages/entries.html",
-  "/entries/update": "pages/entries/update.html",
-  "/": "pages/index.html",
-  "/success": "pages/success.html",
-  "/registration": "pages/registration.html",
-  "/404": "pages/404.html"
+  "/applications/conference-choir-submited": "pages/applications/conference-choir-submited.js",
+  "/applications/conference-choir-entries": "pages/applications/conference-choir-entries.js"
 }
