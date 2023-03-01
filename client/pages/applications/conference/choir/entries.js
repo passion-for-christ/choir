@@ -13,6 +13,8 @@ import classes from './entries.module.scss';
 import { useEffect, useState } from 'react';
 
 const Entries = ({ props }) => {
+    const [cityFilter, setCityFilter] = useState('');
+    const [voiceTypeFilter, setVoiceTypeFilter] = useState('');
 
     const [ isAdmin, setIsAdmin ] = useState(false);
 
@@ -22,12 +24,12 @@ const Entries = ({ props }) => {
         setShowSuccessMessage,
         collection,
         modalState,
-        openDeleteModalHandler,
+        // openDeleteModalHandler,
         deleteHandler,
-        openUpdateModalHandler,
+        // openUpdateModalHandler,
         updateHandler,
         closeModalHandler,
-    ] = useAdmin('sign-up');
+    ] = useAdmin('sign-up', cityFilter, voiceTypeFilter);
 
     const {
         currentlySelected,
@@ -41,15 +43,35 @@ const Entries = ({ props }) => {
     const theQuery = router.query.pass;
 
     useEffect(() => {
-
-        if (theQuery && theQuery === "1qaz2wsx") {
+        if (theQuery && theQuery === '1qaz2wsx') {
             setIsAdmin(true);
         }
+    }, [theQuery]);
 
-    }, [theQuery])
+    const onChangeVoiceTypeFilter = event => {
+        event.preventDefault();
+        const value = event.target.value;
+
+        let updatedFilter = `&voiceType=${value}`;
+        setVoiceTypeFilter(updatedFilter);
+    };
+
+    const onChangeCityFilter = event => {
+        event.preventDefault();
+        const value = event.target.value;
+
+        let updatedFilter = `&city=${value}`;
+        setCityFilter(updatedFilter);
+    };
+
+    const resetFilterHandler = () => {
+        document.querySelector('form').reset();
+        setCityFilter('');
+        setVoiceTypeFilter('');
+    };
 
     if (!theQuery || !isAdmin) {
-        return <div style={{marginTop: '2rem', textAlign: 'center'}}>Sorry you are not authorized to view this content.</div>
+        return <div style={{marginTop: '2rem', textAlign: 'center'}}>Sorry you are not authorized to view this content.</div>;
     }
 
     return (
@@ -57,10 +79,46 @@ const Entries = ({ props }) => {
             {isLoading && <LoadingSpinner asOverlay />}
 
             <div className={classes.adminContentUsers}>
-                <h4>CHOIR ENTRIES - { collection.length }</h4>
+                <h4>CHOIR entries</h4>
+
+                <form>
+                    <div className={classes.filters}>
+                        <div className={classes.filter}>
+                            <label htmlFor='city-filter'>Filter City</label>
+                            <select id='city-filter' onChange={onChangeCityFilter}>
+                                <option hidden={true}>Select</option>
+                                <option disabled={true} default={true}>Select</option>
+
+                                <option value='Seattle'>Seattle</option>
+                                <option value='Portland'>Portland</option>
+                            </select>
+                        </div>
+
+                        <div className={classes.filter}>
+                            <label htmlFor='voice-type-filter'>Filter Choir Part</label>
+                            <select id='voice-type-filter' onChange={onChangeVoiceTypeFilter}>
+                                <option hidden={true}>Select</option>
+                                <option disabled={true} default={true}>Select</option>
+
+                                <option value='Soprano' defaultValue>Soprano</option>
+                                <option value='Alto'>Alto</option>
+                                <option value='Tenor'>Tenor</option>
+                                <option value='Bass'>Bass</option>
+                            </select>
+                        </div>
+
+                        <button className={classes.resetButton} onClick={resetFilterHandler} type='button'>Reset Filter</button>
+                    </div>
+                </form>
 
                 {collection.length ? ( 
                     <>
+                        <div className={classes.totals}>
+                            <p>
+                                Total Entries: &nbsp;&nbsp;<strong>{collection.length}</strong> &nbsp;&nbsp;
+                            </p>
+                        </div>
+
                         {showSuccessMessage && (
                             <div className='success-message' style={
                                 {background: deletedOrUpdated === 'deleted' ? '#b74242' : '#60AE5B'}
@@ -90,7 +148,7 @@ const Entries = ({ props }) => {
                                     <td>City</td>
                                     <td>Choir Part</td>
                                     <td>Experience</td>
-                                    <td></td>
+                                    {/* <td></td> */}
                                 </tr>
                             </thead>
 
@@ -131,7 +189,7 @@ const Entries = ({ props }) => {
                                                 {entry.experienced ? 'YES' : 'NO'}
                                             </td>
 
-                                            <td className={classes.adminButtons}>
+                                            {/* <td className={classes.adminButtons}>
                                                 <div>
                                                     <Button type='button' size='icon' onClick={() => openUpdateModalHandler(entry)}>
                                                         <i className='fal fa-edit'></i>
@@ -141,7 +199,7 @@ const Entries = ({ props }) => {
                                                         <i className='fal fa-trash-alt'></i>
                                                     </Button>
                                                 </div>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     ))
                                 ) : (

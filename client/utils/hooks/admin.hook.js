@@ -64,7 +64,7 @@ const useModals = () => {
     return [modalState, openUpdateModal, openConfirmDeleteModal, closeModal];
 };
 
-export const useAdmin = (collectionUrl) => {
+export const useAdmin = (collectionUrl, cityFilter, voiceTypeFilter) => {
     const { sendRequest } = useHttpClient();
 
     const [isLoading, setIsLoading] = useState(false);
@@ -75,12 +75,12 @@ export const useAdmin = (collectionUrl) => {
 
     useEffect(() => {
         fetchCollection();
-    }, [sendRequest]);
+    }, [sendRequest, cityFilter, voiceTypeFilter]);
 
     const fetchCollection = async () => {
         setIsLoading(true);
         try {
-            const responseData = await sendRequest(process.env.BACKEND_URL + '/' + collectionUrl);
+            const responseData = await sendRequest(process.env.BACKEND_URL + '/' + collectionUrl + '/?' + cityFilter + voiceTypeFilter);
             setCollection(responseData.data.data);
         } catch (err) {
             console.error('There was an error fetching the collection: ', err);
