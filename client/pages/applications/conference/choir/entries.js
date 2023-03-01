@@ -10,9 +10,12 @@ import { useRouter } from 'next/router';
 import UpdateEntries from './components/registration-update';
 
 import classes from './entries.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Entries = ({ props }) => {
+
+    const [ isAdmin, setIsAdmin ] = useState(false);
+
     const [
         isLoading,
         showSuccessMessage,
@@ -39,18 +42,22 @@ const Entries = ({ props }) => {
 
     useEffect(() => {
 
-        if (theQuery && theQuery !== "OviIsTheChoirDirector") {
-            router.push('/applications/conference/choir')
+        if (theQuery && theQuery === "1qaz2wsx") {
+            setIsAdmin(true);
         }
+
     }, [theQuery])
 
+    if (!theQuery || !isAdmin) {
+        return <div style={{marginTop: '2rem', textAlign: 'center'}}>Sorry you are not authorized to view this content.</div>
+    }
 
     return (
         <>
             {isLoading && <LoadingSpinner asOverlay />}
 
             <div className={classes.adminContentUsers}>
-                <h4>CHOIR ENTRIES</h4>
+                <h4>CHOIR ENTRIES - { collection.length }</h4>
 
                 {collection.length ? ( 
                     <>
@@ -74,6 +81,7 @@ const Entries = ({ props }) => {
                         <AdminTable>
                             <thead>
                                 <tr>
+                                    <td></td>
                                     <td>Name</td>
                                     <td>Age</td>
                                     <td>Phone</td>
@@ -82,13 +90,15 @@ const Entries = ({ props }) => {
                                     <td>City</td>
                                     <td>Choir Part</td>
                                     <td>Experience</td>
+                                    <td></td>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {collection.length ? (
-                                    collection.map(entry => (
+                                    collection.map((entry, i) => (
                                         <tr key={entry._id}>
+                                            <td>{ i + 1 }</td>
                                             <td style={{ textTransform: 'capitalize' }}>
                                                 {entry.firstName + ' ' + entry.lastName}
                                             </td>
