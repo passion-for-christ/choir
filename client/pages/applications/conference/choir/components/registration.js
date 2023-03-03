@@ -72,6 +72,7 @@ const Registration = () => {
                         <option value='' disabled defaultValue>Select</option>
                         <option value='Seattle'>Seattle</option>
                         <option value='Portland'>Portland</option>
+                        <option value='California'>California</option>
                     </Input>
                 </div>
 

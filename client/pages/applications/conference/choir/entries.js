@@ -91,6 +91,7 @@ const Entries = ({ props }) => {
 
                                 <option value='Seattle'>Seattle</option>
                                 <option value='Portland'>Portland</option>
+                                <option value='California'>California</option>
                             </select>
                         </div>
 

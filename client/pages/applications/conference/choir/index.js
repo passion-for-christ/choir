@@ -5,6 +5,7 @@ const ConferenceChoirPage = () => {
         <div className='page'>
             <h2 style={{marginBottom: '1rem'}}>West-Coast Youth Convention</h2>
             <h4>Choir Registration Form - Seattle 2023</h4>
+            <p>Registration Ends April 3rd 2023</p>
 
             <div className='registration'>
                 <img src="/img/choir.jpg" />
