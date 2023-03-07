@@ -127,7 +127,6 @@ const Registration = () => {
                     <option value='Alto'>Alto</option>
                     <option value='Tenor'>Tenor</option>
                     <option value='Bass'>Bass</option>
-                    <option value='Unsure'>Unsure</option>
                 </Input>
                     
 
